@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raushan Kumar - Raushan Kumar Gupta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+    }
+
+    /* Colorful Gradient Background Animation */
+    .animated-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff69b4, #00ff88, #00bfff, #ffff00, #ff1493);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        z-index: -1;
+        filter: blur(40px);
+        opacity: 0.6;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Wavy Pattern Overlay */
+    .wave-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)" opacity="0.3"/><path d="M0,60 Q300,10 600,60 T1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)" opacity="0.2"/><path d="M0,70 Q300,20 600,70 T1200,70 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)" opacity="0.1"/></svg>');
+        background-repeat: repeat-x;
+        background-size: cover;
+        z-index: -1;
+        animation: wave 8s linear infinite;
+    }
+
+    @keyframes wave {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(100px); }
+    }
+
+    /* Main Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.95);
+        min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+        text-align: center;
+        padding: 3rem 0;
+        border-bottom: 3px solid #ddd;
+        margin-bottom: 2rem;
+    }
+
+    .site-title {
+        font-size: 4rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: #333;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-tagline {
+        font-size: 1.4rem;
+        color: #666;
+        font-style: italic;
+        letter-spacing: 1px;
+    }
+
+    /* Navigation Menu */
+    nav {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 1.5rem 0;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #ddd;
+        text-align: center;
+    }
+
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav-menu li {
+        display: inline;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-menu a:hover {
+        color: #ff1493;
+        text-decoration: underline;
+    }
+
+    .nav-menu a::after {
+        content: '•';
+        margin-left: 1rem;
+    }
+
+    .nav-menu li:last-child a::after {
+        content: '';
+    }
+
+    /* Main Content */
+    main {
+        background: rgba(255, 255, 255, 0.99);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    section {
+        margin-bottom: 3rem;
+    }
+
+    section h2 {
+        font-size: 2.8rem;
+        color: #5a1a5a;
+        margin-bottom: 1.5rem;
+        font-weight: normal;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #ff1493;
+        padding-bottom: 1rem;
+    }
+
+    section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 1rem;
+    }
+
+    section a {
+        color: #4a90e2;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    section a:hover {
+        color: #ff1493;
+        text-decoration: underline;
+    }
+
+    /* About Section Styling */
+    .about-section {
+        background: linear-gradient(135deg, rgba(255, 192, 203, 0.1), rgba(0, 255, 136, 0.1));
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 5px solid #ff1493;
+    }
+
+    /* Blog Preview */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .blog-card {
+        background: linear-gradient(135deg, #ffeef8, #e8f8f5);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+
+    .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(255, 20, 147, 0.2);
+    }
+
+    .blog-card h3 {
+        color: #ff1493;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .blog-card p {
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .read-more {
+        color: #4a90e2;
+        font-weight: 600;
+        margin-top: 1rem;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+
+    .read-more:hover {
+        color: #ff1493;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .gallery-item {
+        background: #ddd;
+        border-radius: 8px;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-weight: bold;
+        border: 2px solid #ff1493;
+        transition: all 0.3s;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(255, 20, 147, 0.3);
+    }
+
+    /* Contact Form */
+    .contact-form {
+        background: linear-gradient(135deg, #fff0f5, #f0ffff);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #ff1493;
+        box-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .submit-btn {
+        background: linear-gradient(135deg, #ff1493, #ff69b4);
+        color: white;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(255, 20, 147, 0.4);
+    }
+
+    /* Footer */
+    footer {
+        background: rgba(50, 50, 50, 0.95);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-links {
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+        color: #00bfff;
+        text-decoration: none;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #ff1493;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #555;
+        padding-top: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .site-title {
+            font-size: 2.5rem;
+        }
+
+        .site-tagline {
+            font-size: 1.1rem;
+        }
+
+        .nav-menu {
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .nav-menu a {
+            padding: 0.3rem 0.5rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+        }
+
+        .blog-grid,
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        header {
+            padding: 1.5rem 0;
+        }
+    }
+
+    /* Edit Button Styling */
+    .edit-btn {
+        background: #333;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        transition: background 0.3s;
+    }
+
+    .edit-btn:hover {
+        background: #555;
+    }
+</style>
+```
+
+</head>
+<body>
+
+```
+<!-- Animated Background -->
+<div class="animated-background"></div>
+<div class="wave-background"></div>
+
+<!-- Main Container -->
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <div class="site-title">RAUSHAN.APPS</div>
+        <div class="site-tagline">Raushan heartly welcomes you</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#blog">BLOG</a></li>
+            <li><a href="#opinions">MY OPINIONS</a></li>
+            <li><a href="#songs">RELAXING SONGS</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
+            <li><a href="#family">FAMILY</a></li>
+            <li><a href="#love">LOVE</a></li>
+            <li><a href="#pops">POPS</a></li>
+            <li><a href="#punjabi">PUNJABI</a></li>
+            <li><a href="#patriotic">PATRIOTIC</a></li>
+            <li><a href="#places">PLACES VISITED</a></li>
+            <li><a href="#about">ABOUT RAUSHAN KUMAR</a></li>
+            <li><a href="#tatkal">TATKAL BABA</a></li>
+            <li><a href="#motivation">MOTIVATION</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Welcome</h2>
+            <p>Welcome to Raushan.apps - your one-stop destination for inspiration, entertainment, and personal growth. Here you'll find a diverse collection of content ranging from blogs and opinions to music playlists and motivational content.</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <h2>About Raushan Kumar</h2>
+            <p>Raushan Kumar Gupta, also known by his alias "Raushanapps," is a passionate content creator and digital enthusiast. With a keen interest in technology, music, and personal development, Raushan has created this platform to share his thoughts, experiences, and discoveries with the world.</p>
+            <p>This website is a reflection of his diverse interests and his commitment to creating meaningful content that resonates with people from all walks of life.</p>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>Digital Innovation</h3>
+                    <p>Exploring the latest trends in digital technology and how they shape our future...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="blog-card">
+                    <h3>Personal Growth Journey</h3>
+                    <p>A comprehensive guide to personal development and achieving your goals...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="blog-card">
+                    <h3>My Experiences</h3>
+                    <p>Stories and insights from my travels and life experiences...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>A collection of memories and moments from my journey.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">Photo 1</div>
+                <div class="gallery-item">Photo 2</div>
+                <div class="gallery-item">Photo 3</div>
+                <div class="gallery-item">Photo 4</div>
+                <div class="gallery-item">Photo 5</div>
+                <div class="gallery-item">Photo 6</div>
+            </div>
+        </section>
+
+        <!-- Music Section -->
+        <section id="songs">
+            <h2>Relaxing Songs & Music</h2>
+            <p>Curated playlists of soothing and relaxing music for every mood and occasion.</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>🎵 Chill Vibes</h3>
+                    <p>A collection of relaxing instrumental and ambient music...</p>
+                </div>
+                <div class="blog-card">
+                    <h3>🎸 Acoustic Dreams</h3>
+                    <p>Beautiful acoustic covers and original compositions...</p>
+                </div>
+                <div class="blog-card">
+                    <h3>🎼 Classical Essentials</h3>
+                    <p>Timeless classical music for focus and relaxation...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section id="motivation">
+            <h2>Motivation & Inspiration</h2>
+            <p>Daily doses of motivation and inspirational quotes to uplift your spirit and keep you moving forward.</p>
+            <blockquote style="border-left: 4px solid #ff1493; padding-left: 1rem; margin: 2rem 0; font-style: italic; color: #666;">
+                "Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill
+            </blockquote>
+        </section>
+
+        <!-- Opinions Section -->
+        <section id="opinions">
+            <h2>My Opinions</h2>
+            <p>Personal thoughts and opinions on various topics ranging from technology to lifestyle and current affairs.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>Have something to share or want to collaborate? Feel free to reach out!</p>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#blog">Blog</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Raushan.apps - All Rights Reserved | Raushan Kumar Gupta</p>
+                <p>Proudly created with passion and dedication</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        alert('Thank you for your message! Raushan will get back to you soon.');
+        event.target.reset();
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+```
+
+</body>
+</html>
